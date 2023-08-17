@@ -14,7 +14,7 @@ function App() {
   const [interv, setInterv] = useState();
   const start = () => { 
     run();
-    setInterv(setInterval(run, 1));
+    setInterv(setInterval(run, 10));
   };
   let updatedMs = time.ms, updatedS = time.s, updatedM = time.m, updatedH = time.h;  
 
@@ -28,7 +28,7 @@ function App() {
       updatedM++;
       updatedS = 0;
     }
-    if(updatedMs === 1000){
+    if(updatedMs === 100){
       updatedS++;
       updatedMs = 0;
     }
@@ -52,11 +52,6 @@ function App() {
           h:0,})
       };
 
-      useEffect(() => {
-        return () => {
-           if(interv) clearInterval(interv);
-        };
-      }, []);
 
   return (
     <Container>
